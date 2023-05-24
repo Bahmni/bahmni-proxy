@@ -35,9 +35,8 @@ RUN apk add --no-cache --virtual .build-deps \
 		py-pip \
 		tar \
         python3-dev \
-        libffi-dev
-
-RUN apk add tzdata
+        libffi-dev \
+		tzdata
 
 RUN python3 -m venv /opt/certbot/ &&\
         /opt/certbot/bin/pip install certbot &&\
