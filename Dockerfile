@@ -25,7 +25,6 @@ RUN cd /etc/ &&\
     cd tls &&\
     openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=localhost" -keyout key.pem  -out cert.pem
 
-
 RUN apk add --no-cache --virtual .build-deps \
 		apr-dev \
 		apr-util-dev \
@@ -37,6 +36,8 @@ RUN apk add --no-cache --virtual .build-deps \
 		tar \
         python3-dev \
         libffi-dev
+
+RUN apk add tzdata
 
 RUN python3 -m venv /opt/certbot/ &&\
         /opt/certbot/bin/pip install certbot &&\
