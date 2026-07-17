@@ -1,6 +1,5 @@
 FROM httpd:2.4-alpine
 
-RUN apk update && apk upgrade --no-cache
 RUN apk add curl
 COPY scripts/get_client_side_logging.sh /tmp/get_client_side_logging.sh
 RUN sh /tmp/get_client_side_logging.sh && rm /tmp/get_client_side_logging.sh
